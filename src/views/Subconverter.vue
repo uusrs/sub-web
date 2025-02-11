@@ -438,10 +438,8 @@ export default {
         this.form.insert;
 
       if (this.advanced === "2") {
-        if (this.form.remoteConfig) {
-          this.customSubUrl +=
-            "&config=" + encodeURIComponent(this.form.remoteConfig);
-        }
+        const remoteConfig = this.form.remoteConfig || "https://raw.githubusercontent.com/uusrs/config4subconverter/main/config.ini";
+        this.customSubUrl += "&config=" + encodeURIComponent(remoteConfig);
         if (this.form.excludeRemarks) {
           this.customSubUrl +=
             "&exclude=" + encodeURIComponent(this.form.excludeRemarks);
